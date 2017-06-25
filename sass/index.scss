@@ -1,0 +1,376 @@
+// 引入 字体图标
+@import 'base.scss';
+//  顶部通栏
+header {
+    .row>div {
+        border: 1px solid #000;
+        height: 40px;
+        text-align: center;
+        a {
+            color: #666;
+            font-size: 12px;
+            line-height: 40px;
+        }
+    } // 第一个栅格
+    .row>div:nth-child(1) {
+        a {
+            position: relative;
+            img {
+                position: absolute;
+                left: -20px;
+                top: 30px;
+                display: none;
+            }
+        }
+        a:hover img {
+            display: block;
+        }
+    }
+}
+
+// 导航区域
+#wjs-navbar {
+    background-color: #F8F8F8;
+    height: 80px;
+    border: none;
+    padding: 0 30px;
+    li {
+        a {
+            line-height: 80px;
+            height: 80px;
+            padding-top: 0;
+            padding-bottom: 0;
+            background-color: transparent;
+        }
+        a:hover {
+            border-bottom: 3px solid red;
+        }
+    } // 左侧的字体图标
+    .navbar-brand {
+        font-size: 70px;
+        display: flex;
+        align-items: center;
+        height: 80px;
+        span:first-child {
+            color: red;
+        }
+        span:last-child {
+            color: black;
+        }
+    } // 小屏幕中 显出来的 那个 汉堡菜单
+    .navbar-toggle {
+        //  更改了 父盒子的高度这里 重新设置 margin-top 
+        margin-top: 23px;
+    }
+}
+
+// 轮播图区域
+.wjs-banner {
+    // class以 pc-bg开头的a标签
+    // 类名 必须 以pc-bg开头
+    //  只为轮播图 item中的a标签设置
+    .item {
+        a[class^="pc-bg"] {
+            background-repeat: no-repeat;
+            background-position: center;
+            height: 410px;
+        }
+        a.pc-bg-a {
+            background-image: url('../images/slide_01_2000x410.jpg');
+        }
+        a.pc-bg-b {
+            background-image: url('../images/slide_02_2000x410.jpg');
+        }
+        a.pc-bg-c {
+            background-image: url('../images/slide_03_2000x410.jpg');
+        }
+        a.pc-bg-d {
+            background-image: url('../images/slide_01_2000x410.jpg');
+        } // 普通的 a标签的样式
+        a {
+            width: 100%;
+            display: block;
+            img {
+                width: 100%;
+                display: block;
+            }
+        }
+    }
+}
+
+// 保障区域
+.wjs-protect {
+    padding: 50px 80px;
+    .row>div {
+        // 使用弹性布局居中 
+        display: flex;
+        justify-content: center;
+        padding: 10px;
+        .media {
+            cursor: pointer;
+            a {
+                color: gray;
+                font-size: 40px;
+            }
+        }
+        .media:hover {
+            color: red;
+            text-decoration: underline;
+            a {
+                color: red;
+        
+            }
+        } // 去掉mediabody的宽度 bootstrap默认为他添加了 10000px的宽度
+        .media-body {
+            width: auto;
+        }
+    }
+}
+
+// 预约区域
+.wjs-book {
+    padding: 20px 100px;
+    border-top: 1px solid #000;
+    border-bottom: 1px solid #000;
+    .pull-left {
+        a {
+            color: red;
+            border-bottom: 1px dashed red;
+        }
+    }
+    .pull-right {
+        a {
+            color: gray;
+        }
+        a:hover {
+            color: red;
+        }
+    }
+}
+
+// 优惠券区域
+#wjs-tickets {
+    .nav-tabs {
+        li.active {
+            a {
+                // 高度会改变 最不影响结构的方式 让边框看不到
+                border-color: transparent; //     下边框
+                border-bottom: 3px solid red;
+            }
+            a:hover {
+                border-bottom: 3px solid red;
+            }
+        }
+        li {
+            a {
+                color: gray;
+            }
+            a:hover {
+                background-color: transparent;
+                border-color: transparent;
+            }
+        }
+    } // 一张张的优惠卷
+    
+    // 为优惠卷的 父盒子 添加 padding
+    .row>div{
+        padding: 10px;
+    }
+
+    .ticket {
+        display: block;
+        height: 150px;
+        display: flex;
+        // border: 1px solid #000;
+        text-decoration: none;
+        color: gray; // 盒子阴影 右 下
+        box-shadow: 5px 5px 15px gray;
+        .ticket-left {
+            flex: 1;
+            height: 100%;
+            h3{
+                text-align: center;
+                margin: 0;
+                padding: 10px 0;
+            }
+            .left-content{
+                display: flex;
+                justify-content: space-between;
+                padding: 0 10px;
+                p{
+                    font-weight: 900;
+                    line-height: 25px;
+                    margin: 0;
+                }
+                .left{
+
+                }
+                .right{
+
+                }
+            }
+        }
+        .ticket-right {
+            width: 108px;
+            height: 100%; // 左边的线段
+            border-left: 1px dashed #000;
+            position: relative;
+            p {
+                text-align: center;
+                font-weight: 900;
+                margin: 0;
+                padding-top: 10px;
+            } // 伪元素实现 圆形
+            &::before {
+                content: '';
+                border-radius: 50%;
+                width: 20px;
+                height: 20px;
+                position: absolute;
+                left: -10px;
+                top: -10px;
+                background-color: white;
+                border-bottom: 1px solid #000;
+            }
+            &::after {
+                content: '';
+                border-radius: 50%;
+                width: 20px;
+                height: 20px;
+                position: absolute;
+                left: -10px;
+                bottom: -10px;
+                background-color: white;
+                border-top: 1px solid #000;
+            }
+        }
+    }
+
+    // 特殊的 优惠券
+    // 体验 是微金所的 字体图标 直接使用即可
+    .ticket.special{
+        background-color: red;
+        color:white;
+        .ticket-right{
+            border-left-color:white;
+        }
+        &::before{
+            font-size:40px;
+            position: absolute;
+        }
+        .ticket-right{
+            text-align: center;
+            padding-top: 20px;
+            span{
+                padding: 5px;
+                border: 1px solid #000;
+                color:greenyellow;
+                border-color: greenyellow;
+            }
+            span:nth-child(2){
+                margin-left: 5px;
+                color:yellow;
+                border-color:yellow;
+            }
+        }
+    }
+}
+
+// 新闻区域
+.wjs-news{
+    border-top: 1px solid #000;
+    border-bottom: 1px solid #000;
+    .row>div:nth-child(2){
+        h2{
+            border-bottom: 1px solid #000;
+            position: relative;
+            text-align: center;
+            padding: 10px 0 20px;
+            &::before{
+                content:'';
+                width: 10px;
+                height: 10px;
+                border:1px solid black;
+                border-radius: 50%;
+                position: absolute;
+                right:-10px;
+                bottom:-5px;
+            }
+        }
+    }
+
+    // 第三个 栅格 中的 li标签 一行一个
+    .row>div:nth-child(3){
+        .nav-tabs{
+            li{
+                // width: 100%;
+                margin-bottom: 50px;
+                a{
+                    width: 70px;
+                    height: 70px;
+                    border-radius: 50%;
+                    background-color: #ccc;
+                    color:white;
+                    font-size:40px;
+                    text-align: center;
+                    line-height: 70px;
+                    padding-top: 0;
+                    padding-bottom: 0;
+                }
+                a:hover{
+                    background-color: red;
+                }
+            }
+            li.active{
+                a{
+                    background-color: red;
+                }
+            }
+        }
+        // 设置虚线
+        .line{
+            height: 70%;
+            position: absolute;
+            width: 1px;
+            top:30px;
+            left:50px;
+            border-right: 1px dashed #000;
+        }
+    }
+    // 内容部分的 布局
+    .row>div:nth-child(4){
+        ul{
+            padding-top: 20px;
+            li{
+                padding: 10px 0;
+                a{
+                    color:gray;
+                }
+            }
+        }
+    }
+}
+
+// 底部区域
+footer{
+    text-align: center;
+    h2{
+        text-align: center;
+    }
+    ul{
+        display: inline-block;
+        li{
+            float: left;
+            padding: 10px;
+            a{
+                color:gray;
+                font-size:100px;
+                text-decoration: none;
+            }
+            a:hover{
+                color:gray;
+                text-decoration: none;
+            }
+        }
+    }
+}
